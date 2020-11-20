@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico">
+    <link rel="stylesheet" href="./libs/bootstrap-4.5.3-dist/bootstrap.min.css">
+    <link rel="stylesheet" href="./libs/fontawesome-free-5.7.0-web/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <title>ToDo</title>
+</head>
+
+<body>
+    <div class="container">
+        <h1 class="todo-title text-center pt-2">ToDo List</h1>
+
+        <div class="row">
+            <div class="col">
+                <div id="infoElems" class="info text-center">
+                    <div id="alertAdd" class="alert alert-success" role="alert">
+                        Задача добавлена!
+                    </div>
+
+                    <div id="alertDone" class="alert alert-info" role="alert">
+                        Задача выполнена!
+                    </div>
+
+                    <div id="alertDelete" class="alert alert-danger" role="alert">
+                        Задача удалена!
+                    </div>
+                </div>
+
+
+                <div class="row justify-content-center align-items-center">
+                    <div class="col-md-6">
+                        <form class="tasks-form">
+                            <div class="input-group mt-5 mb-3 ">
+                                <input type="text" id="input" class="form-control" placeholder="Текст задачи"
+                                    aria-label="Текст задачи">
+                                <div class="input-group-append">
+                                    <button class="btn btn-outline-secondary" type="submit" id="addBtn">
+                                        Добавить задачу
+                                    </button>
+                                </div>
+                            </div>
+                            <span class="error-msg">
+                                Введи верное значение
+                            </span>
+                        </form>
+                    </div>
+                </div>
+
+                <h2 class="todo-subtitle mb-3">Список задач:</h2>
+                <p id="defaultTasksTextElem" class="info-text"></p>
+
+                <div class="row justify-content-center align-items-center">
+                    <div class="col">
+
+                        <ul id="taskList" class="list-group mb-5">
+
+                            <!-- <li class=" item list-group-item d-flex justify-content-between">
+                                <span class="desc">Погулять</span>
+                                <div class="button-wrapper">
+                                    <button type="button" class="btn btn-success">Готово</button>
+                                    <button type="button" class="btn btn-danger">Удалить</button>
+                                    <button type="button" class="btn btn-warning">Изменить</button>
+                                </div>
+                            </li> -->
+                        </ul>
+                        <h2 class="todo-subtitle mb-3">Выполненные задачи:</h2>
+                        <p id="defaultTasksDoneTextElem" class="info-text">
+                        </p>
+                        <ul id="taskListDone" class="list-group">
+                        </ul>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+        <div id="formWrap" class="form-wrap">
+            <form>
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Текст задачи</label>
+                    <input id="replaceInput" type="text" class="form-control">
+                    <small class="form-text text-muted">Замени текст задачи</small>
+                </div>
+
+                <button id="replaceBtn" class="btn btn-success">Изменить</button>
+                <button id="cancelBtn" class="btn btn-danger">Отменить</button>
+                <span id="closeBtn">
+                    <i class="far fa-window-close"></i>
+                </span>
+                <span id="replaceErrorText" class="error-msg">
+                    Введи верное значение
+                </span>
+            </form>
+
+        </div>
+
+
+
+    </div>
+
+    <script src="libs/jQuery_min/jQuery_v3.3.1.js"></script>
+    <script src="libs/fontawesome-free-5.7.0-web/js/all.min.js"></script>
+    <script src="./libs/bootstrap-4.5.3-dist/bootstrap.min.js"></script>
+    <script src="js/main.js"></script>
+</body>
+
+</html>
