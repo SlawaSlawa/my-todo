@@ -93,10 +93,11 @@ function deleteTask(id) {
 function toggleDefaultText() {
     let flag = true;
     let tasksLength = 0;
+
     todoList.forEach(item => {
         if (item.isDone) {
             flag = false;
-            tasksLength++;
+            ++tasksLength;
         }
     });
 
@@ -106,7 +107,8 @@ function toggleDefaultText() {
         defaultTasksDoneTextElem.textContent = '';
     }
 
-    if (todoList.length == 0 || flag || tasksLength == todoList.length) {
+    if (todoList.length == 0 || tasksLength == todoList.length) {
+    	console.log();
         defaultTasksTextElem.textContent = 'На данный момент нет задач';
     } else {
         defaultTasksTextElem.textContent = '';
@@ -153,9 +155,6 @@ function replaceTask(id) {
 
 // ----------------------Обработчики------------------------
 
-
-
-
 addBtn.addEventListener('click', (event) => {
     event.preventDefault();
     const inputValue = inputElem.value;
@@ -165,13 +164,11 @@ addBtn.addEventListener('click', (event) => {
         formWrap.style.display = 'none';
         addTaskInList(inputValue);
         showInfo(alertAdd);
-        toggleDefaultText();
     } else {
         errorMsg.style.display = 'block';
         inputElem.value = '';
     }
-
-
+        toggleDefaultText();
 });
 
 tasksListElem.addEventListener('click', event => {
@@ -212,6 +209,7 @@ tasksListDoneElem.addEventListener('click', event => {
         const id = elem.dataset.taskId;
         deleteTask(id);
         showInfo(alertDelete);
+        toggleDefaultText();
     }
 });
 
@@ -237,20 +235,25 @@ replaceBtn.addEventListener('click', event => {
     replaceTask(id);
 });
 
-
-
-
-
-
-if (localStorage.getItem('todoList')) {
+function init() {
+	if (localStorage.getItem('todoList')) {
     todoList = JSON.parse(localStorage.getItem('todoList'));
 } else {
     JSON.stringify(localStorage.setItem('todoList', todoList));
 
 }
+	toggleDefaultText();
+	renderTasks();
+}
+
+init();
 
 
-toggleDefaultText();
-renderTasks();
+
+
+
+
+
+
 
 
